@@ -9,11 +9,11 @@ class RegisterPage extends StatefulWidget {
   final TextEditingController confirmPasswordController;
 
   const RegisterPage({
-    super.key,
+    Key? key,
     required this.emailController,
     required this.passwordController,
     required this.confirmPasswordController,
-  });
+  }) : super(key: key);
 
   @override
   State<RegisterPage> createState() => _RegisterPageState();
@@ -31,6 +31,20 @@ class _RegisterPageState extends State<RegisterPage> {
       return;
     }
 
+    if (!RegExp(r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$").hasMatch(widget.emailController.text.trim())) {
+      setState(() {
+        errorMessage = "Please enter a valid email address.";
+      });
+      return;
+    }
+
+    if (widget.passwordController.text.length < 6) {
+      setState(() {
+        errorMessage = "Password must be at least 6 characters long.";
+      });
+      return;
+    }
+
     setState(() => isLoading = true);
 
     try {
@@ -39,7 +53,7 @@ class _RegisterPageState extends State<RegisterPage> {
         password: widget.passwordController.text,
       );
       setState(() => errorMessage = null);
-      Navigator.pop(context);
+      Navigator.pop(context); 
     } on FirebaseAuthException catch (e) {
       setState(() {
         errorMessage = e.message ?? "An error occurred. Please try again.";
@@ -52,10 +66,11 @@ class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[300], // Fixed background color for consistency
+      backgroundColor: Colors.black,
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
+            padding: const EdgeInsets.symmetric(horizontal: 25.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -94,22 +109,6 @@ class _RegisterPageState extends State<RegisterPage> {
                 isLoading
                     ? const CircularProgressIndicator()
                     : MyButton(onTap: registerUser, text: 'Register'),
-                const SizedBox(height: 25.0),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Text("Already have an account? ", style: TextStyle(color: Colors.black)),
-                    TextButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      child: const Text(
-                        'Login Now',
-                        style: TextStyle(color: Colors.blueAccent, fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                  ],
-                ),
               ],
             ),
           ),

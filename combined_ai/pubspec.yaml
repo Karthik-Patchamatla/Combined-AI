@@ -1,32 +1,33 @@
 name: combined_ai
 description: "A new Flutter project."
 
-publish_to: 'none' 
+publish_to: 'none'  # Do not publish to pub.dev
 
 version: 1.0.0+1
 
 environment:
-  sdk: ^3.5.4
-
+  sdk: ">=3.5.0 <4.0.0"  # Specify SDK version range for compatibility
 
 dependencies:
   flutter:
     sdk: flutter
-
   cupertino_icons: ^1.0.8
   firebase_core: ^3.6.0
   firebase_auth: ^5.3.1
 
 dev_dependencies:
+  flutter_launcher_icons: ^0.13.1
   flutter_test:
     sdk: flutter
-
   flutter_lints: ^4.0.0
 
-
 flutter:
-
   uses-material-design: true
-
   assets:
     - lib/images/
+
+flutter_icons:
+  android: true
+  ios: true
+  adaptive_icon_background: "#111111"
+  image_path: "lib/images/imagelogoone.png"

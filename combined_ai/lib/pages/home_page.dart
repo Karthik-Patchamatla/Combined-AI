@@ -14,7 +14,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Music App'),
+        title: const Text('Combined AI'),
       ),
       drawer: const DrawerWidget(), // Use the DrawerWidget
       

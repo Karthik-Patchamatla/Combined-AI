@@ -1,36 +1,25 @@
 import 'package:flutter/material.dart';
 
-class MyButton extends StatefulWidget {
+class MyButton extends StatelessWidget {
   final Function()? onTap;
-  final String text; // Add text property
+  final String text;
 
-  const MyButton({super.key, required this.onTap, required this.text}); // Include text in the constructor
+  const MyButton({Key? key, required this.onTap, required this.text}) : super(key: key);
 
-  @override
-  State<MyButton> createState() => _MyButtonState();
-}
-
-class _MyButtonState extends State<MyButton> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: widget.onTap,
+      onTap: onTap,
       child: Container(
-        padding: const EdgeInsets.all(25.0),
-        margin: const EdgeInsets.symmetric(horizontal: 25.0),
+        alignment: Alignment.center,
+        padding: const EdgeInsets.all(15.0),
         decoration: BoxDecoration(
-          color: Colors.black,
-          borderRadius: BorderRadius.circular(8.0),
+          color: Colors.blue,
+          borderRadius: BorderRadius.circular(10.0),
         ),
-        child: Center(
-          child: Text(
-            widget.text, // Use widget.text to display the button text
-            style: const TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
-              fontSize: 16.0,
-            ),
-          ),
+        child: Text(
+          text,
+          style: const TextStyle(color: Colors.white, fontSize: 18.0),
         ),
       ),
     );
