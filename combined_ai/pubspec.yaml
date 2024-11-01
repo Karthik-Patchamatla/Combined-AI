@@ -29,5 +29,5 @@ flutter:
 flutter_icons:
   android: true
   ios: true
-  adaptive_icon_background: "#111111"
-  image_path: "lib/images/imagelogoone.png"
+  
+  image_path: "lib/images/logo.png"
