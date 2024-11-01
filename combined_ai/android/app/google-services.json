@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "696205065808",
+    "project_id": "combinedai",
+    "storage_bucket": "combinedai.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:696205065808:android:0db1e5e15495f06c8a1b55",
+        "android_client_info": {
+          "package_name": "com.example.combined_ai"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACvKrRXvDZhPqEx-dA5idvdf919GN_Mqo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:696205065808:android:6c50cfb457b2d1848a1b55",
+        "android_client_info": {
+          "package_name": "com.flutter.combinedai"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACvKrRXvDZhPqEx-dA5idvdf919GN_Mqo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
